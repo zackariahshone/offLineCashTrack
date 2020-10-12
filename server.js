@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT;
 
 const app = express();
 
@@ -33,7 +33,7 @@ mongoose.connect(
 
 // routes
 app.use(require("./routes/api"));
-// app.use(require('./routes/routecontrollers'))
+app.use(require('./routes/routecontrollers'))
 
 
 app.listen(PORT, () => {
